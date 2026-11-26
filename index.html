@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pink Fancy Store — Makeup & Jewelleries</title>
+  <style>
+    :root {
+      --bg: #fff5f8;
+      --card: #ffffff;
+      --pink: #e91e63;
+      --pink-dark: #ad1457;
+      --pink-soft: #fce4ec;
+      --text: #2b1420;
+      --muted: #6e4759;
+      --border: #f8bbd0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      background: linear-gradient(135deg, #f06292, #c2185b);
+      color: #fff;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(194, 24, 91, 0.2);
+    }
+
+    .nav {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand { font-size: 1.4rem; font-weight: bold; }
+
+    .cart-pill {
+      background: #fff;
+      color: var(--pink-dark);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .hero {
+      max-width: 1050px;
+      margin: 24px auto 12px;
+      padding: 24px;
+      background: var(--pink-soft);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .hero h1 { color: var(--pink-dark); font-size: 1.8rem; margin-bottom: 8px; }
+    .hero p { color: var(--muted); }
+
+    .filters {
+      max-width: 1050px;
+      margin: 16px auto;
+      padding: 0 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--pink);
+      background: #fff;
+      color: var(--pink-dark);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--pink);
+      color: #fff;
+    }
+
+    .grid {
+      max-width: 1050px;
+      margin: 16px auto 40px;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      background: var(--pink-soft);
+      color: var(--pink-dark);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .price { font-weight: bold; color: var(--pink-dark); font-size: 1.1rem; }
+
+    .add-btn {
+      width: 100%;
+      background: var(--pink);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .add-btn:hover { background: var(--pink-dark); }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">Pink Fancy Store</div>
+      <div class="cart-pill">Bag: <span id="cart-count">0</span> items</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Makeup &amp; Fancy Jewelleries</h1>
+    <p>Curated lip shades, blush, earrings, and everyday glam essentials.</p>
+  </section>
+
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterItems('all', this)">All</button>
+    <button class="filter-btn" onclick="filterItems('makeup', this)">Makeup</button>
+    <button class="filter-btn" onclick="filterItems('jewellery', this)">Jewellery</button>
+  </div>
+
+  <main class="grid" id="product-grid"></main>
+
+  <footer>
+    Pink Fancy Store &bull; Makeup &amp; Jewelleries
+  </footer>
+
+  <script>
+    const products = [
+      { id: 1, name: "Velvet Rose Lip Tint", category: "makeup", price: 249 },
+      { id: 2, name: "Peach Dew Blush", category: "makeup", price: 299 },
+      { id: 3, name: "Pearl Drop Jhumkas", category: "jewellery", price: 349 },
+      { id: 4, name: "Rose Gold Layered Chain", category: "jewellery", price: 399 },
+      { id: 5, name: "Glossy Berry Lip Oil", category: "makeup", price: 279 },
+      { id: 6, name: "Crystal Stud Set", category: "jewellery", price: 199 }
+    ];
+
+    let cartCount = 0;
+
+    function renderProducts(list) {
+      const grid = document.getElementById("product-grid");
+      grid.innerHTML = list.map(item => `
+        <article class="card">
+          <div>
+            <span class="tag">${item.category}</span>
+            <h3>${item.name}</h3>
+            <div class="price">₹${item.price}</div>
+          </div>
+          <button class="add-btn" onclick="addToCart()">Add to Bag</button>
+        </article>
+      `).join("");
+    }
+
+    function filterItems(category, btn) {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      if (category === "all") {
+        renderProducts(products);
+      } else {
+        renderProducts(products.filter(p => p.category === category));
+      }
+    }
+
+    function addToCart() {
+      cartCount += 1;
+      document.getElementById("cart-count").textContent = cartCount;
+    }
+
+    renderProducts(products);
+  </script>
+</body>
+</html>
+
