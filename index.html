@@ -1,222 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pink Fancy Store — Makeup & Jewelleries</title>
-  <style>
-    :root {
-      --bg: #fff5f8;
-      --card: #ffffff;
-      --pink: #e91e63;
-      --pink-dark: #ad1457;
-      --pink-soft: #fce4ec;
-      --text: #2b1420;
-      --muted: #6e4759;
-      --border: #f8bbd0;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    header {
-      background: linear-gradient(135deg, #f06292, #c2185b);
-      color: #fff;
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 10px rgba(194, 24, 91, 0.2);
-    }
-
-    .nav {
-      max-width: 1050px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand { font-size: 1.4rem; font-weight: bold; }
-
-    .cart-pill {
-      background: #fff;
-      color: var(--pink-dark);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-
-    .hero {
-      max-width: 1050px;
-      margin: 24px auto 12px;
-      padding: 24px;
-      background: var(--pink-soft);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      text-align: center;
-    }
-
-    .hero h1 { color: var(--pink-dark); font-size: 1.8rem; margin-bottom: 8px; }
-    .hero p { color: var(--muted); }
-
-    .filters {
-      max-width: 1050px;
-      margin: 16px auto;
-      padding: 0 16px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      border: 1px solid var(--pink);
-      background: #fff;
-      color: var(--pink-dark);
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--pink);
-      color: #fff;
-    }
-
-    .grid {
-      max-width: 1050px;
-      margin: 16px auto 40px;
-      padding: 0 16px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      background: var(--pink-soft);
-      color: var(--pink-dark);
-      padding: 3px 10px;
-      border-radius: 999px;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    .card h3 { font-size: 1.05rem; margin-bottom: 4px; }
-    .price { font-weight: bold; color: var(--pink-dark); font-size: 1.1rem; }
-
-    .add-btn {
-      width: 100%;
-      background: var(--pink);
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .add-btn:hover { background: var(--pink-dark); }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
-    }
-  </style>
-</head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pink Fancy Store</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff8fb;color:#552b40;font-family:Arial,sans-serif}
+header{background:#f8d5e3;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0}
+.logo{font: bold 26px Georgia;color:#a52f65}nav a{margin:0 9px;text-decoration:none;color:#71334f;font-size:13px;font-weight:bold}
+.hero{padding:65px 7%;background:linear-gradient(90deg,#fff0f6ed,#fff0f640),url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1500&q=85') center/cover;min-height:360px}
+.hero h1{font: bold 54px Georgia;color:#7c2c50;max-width:500px;margin:15px 0}.hero p{max-width:420px;line-height:1.7;color:#70475a}
+.btn{display:inline-block;background:#b93872;color:white;padding:13px 22px;text-decoration:none;border-radius:25px;font-weight:bold;font-size:13px}
+section{padding:45px 5%}.heading{text-align:center;margin-bottom:25px}.heading h2{font: bold 34px Georgia;color:#873458;margin:8px}.heading p{color:#946d80;font-size:13px}
+.filters{text-align:center;margin-bottom:25px}.filters button{border:1px solid #dfa9c0;background:white;color:#963d66;padding:9px 16px;border-radius:22px;margin:4px;cursor:pointer}.filters button.active,.filters button:hover{background:#b93872;color:white}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.card{background:white;border:1px solid #f0d7e2;border-radius:13px;overflow:hidden;box-shadow:0 4px 15px #7c315015}.card img{width:100%;height:220px;object-fit:cover;display:block}.info{padding:13px}.info small{color:#bd5c87;text-transform:uppercase;letter-spacing:1px}.info h3{font: bold 18px Georgia;margin:7px 0;color:#623149}.price{color:#ae3268;font-weight:bold}.add{display:block;width:100%;padding:10px;border:0;background:#f7dce8;color:#8c2c55;font-weight:bold;margin-top:12px;cursor:pointer;border-radius:20px}
+footer{text-align:center;background:#542a40;color:#fff0f5;padding:30px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:42px}.card img{height:170px}}
+@media(max-width:430px){header{justify-content:center}nav{width:100%;text-align:center}.grid{gap:10px}.card img{height:145px}.info{padding:10px}.info h3{font-size:15px}}
+</style></head>
 <body>
-  <header>
-    <div class="nav">
-      <div class="brand">Pink Fancy Store</div>
-      <div class="cart-pill">Bag: <span id="cart-count">0</span> items</div>
-    </div>
-  </header>
-
-  <section class="hero">
-    <h1>Makeup &amp; Fancy Jewelleries</h1>
-    <p>Curated lip shades, blush, earrings, and everyday glam essentials.</p>
-  </section>
-
-  <div class="filters">
-    <button class="filter-btn active" onclick="filterItems('all', this)">All</button>
-    <button class="filter-btn" onclick="filterItems('makeup', this)">Makeup</button>
-    <button class="filter-btn" onclick="filterItems('jewellery', this)">Jewellery</button>
-  </div>
-
-  <main class="grid" id="product-grid"></main>
-
-  <footer>
-    Pink Fancy Store &bull; Makeup &amp; Jewelleries
-  </footer>
-
-  <script>
-    const products = [
-      { id: 1, name: "Velvet Rose Lip Tint", category: "makeup", price: 249 },
-      { id: 2, name: "Peach Dew Blush", category: "makeup", price: 299 },
-      { id: 3, name: "Pearl Drop Jhumkas", category: "jewellery", price: 349 },
-      { id: 4, name: "Rose Gold Layered Chain", category: "jewellery", price: 399 },
-      { id: 5, name: "Glossy Berry Lip Oil", category: "makeup", price: 279 },
-      { id: 6, name: "Crystal Stud Set", category: "jewellery", price: 199 }
-    ];
-
-    let cartCount = 0;
-
-    function renderProducts(list) {
-      const grid = document.getElementById("product-grid");
-      grid.innerHTML = list.map(item => `
-        <article class="card">
-          <div>
-            <span class="tag">${item.category}</span>
-            <h3>${item.name}</h3>
-            <div class="price">₹${item.price}</div>
-          </div>
-          <button class="add-btn" onclick="addToCart()">Add to Bag</button>
-        </article>
-      `).join("");
-    }
-
-    function filterItems(category, btn) {
-      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      if (category === "all") {
-        renderProducts(products);
-      } else {
-        renderProducts(products.filter(p => p.category === category));
-      }
-    }
-
-    function addToCart() {
-      cartCount += 1;
-      document.getElementById("cart-count").textContent = cartCount;
-    }
-
-    renderProducts(products);
-  </script>
-</body>
-</html>
-
+<header><div class="logo">♡ Pink Fancy Store</div><nav><a href="#home">HOME</a><a href="#jewellery">JEWELLERY</a><a href="#shop">SHOP</a><a href="#contact">CONTACT</a></nav><b>🛍️ Bag: <span id="count">0</span></b></header>
+<div class="hero" id="home"><p>THE PRETTIEST LITTLE COLLECTION</p><h1>Jewellery That Makes You Shine</h1><p>Discover beautiful necklaces, earrings, bracelets and beauty favourites for every special moment.</p><a class="btn" href="#shop">SHOP COLLECTION</a></div>
+<section id="jewellery"><div class="heading"><h2>✨ Beautiful Jewellery ✨</h2><p>Find your favourite sparkle</p></div>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=700&q=85" alt="Gold necklace"><div class="info"><small>Necklace</small><h3>Golden Glow Necklace</h3></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=85" alt="Fashion earrings"><div class="info"><small>Earrings</small><h3>Pretty Party Earrings</h3></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85" alt="Jewellery set"><div class="info"><small>Jewellery set</small><h3>Elegant Jewellery Set</h3></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=85" alt="Bracelet"><div class="info"><small>Bracelet</small><h3>Classic Bracelet</h3></div></div>
+</div></section>
+<section id="shop" style="background:#fff0f6"><div class="heading"><h2>💗 Shop Our Collection</h2><p>Jewellery, makeup and fancy accessories</p></div>
+<div class="filters"><button class="active" onclick="filter('All',this)">All</button><button onclick="filter('Jewellery',this)">Jewellery</button><button onclick="filter('Makeup',this)">Makeup</button><button onclick="filter('Accessories',this)">Accessories</button></div>
+<div class="grid" id="products">
+<div class="card" data-cat="Jewellery"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=85" alt="Ring"><div class="info"><small>Jewellery</small><h3>Shimmer Ring</h3><div class="price">₹199</div><button class="add" onclick="add()">ADD TO BAG +</button></div></div>
+<div class="card" data-cat="Jewellery"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=85" alt="Necklace"><div class="info"><small>Jewellery</small><h3>Delicate Necklace</h3><div class="price">₹299</div><button class="add" onclick="add()">ADD TO BAG +</button></div></div>
+<div class="card" data-cat="Jewellery"><img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=700&q=85" alt="Earrings"><div class="info"><small>Jewellery</small><h3>Rose Earrings</h3><div class="price">₹249</div><button class="add" onclick="add()">ADD TO BAG +</button></div></div>
+<div class="card" data-cat="Jewellery"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85" alt="Gold jewellery"><div class="info"><small>Jewellery</small><h3>Golden Charm Set</h3><div class="price">₹499</div><button class="add" onclick="add()">ADD TO BAG +</button></div></div>
+<div class="card" data-cat="Makeup"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=85" alt="Makeup kit"><div class="info"><small>Makeup</small><h3>Beauty Makeup Kit</h3><div class="price">₹399</div><button class="add" onclick="add()">ADD TO BAG +</button></div></div>
+<div class="card" data-cat="Accessories"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85" alt="Handbag"><div class="info"><small>Accessories</small><h3>Pretty Party Bag</h3><div class="price">₹349</div><button class="add" onclick="add()">ADD TO BAG +</button></div></div>
+<div class="card" data-cat="Accessories"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85" alt="Fashion accessories"><div class="info"><small>Accessories</small><h3>Style Collection</h3><div class="price">₹229</div><button class="add" onclick="add()">ADD TO BAG +</button></div></div>
+<div class="card" data-cat="Jewellery"><img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=700&q=85" alt="Jewellery necklace"><div class="info"><small>Jewellery</small><h3>Party Wear Necklace</h3><div class="price">₹449</div><button class="add" onclick="add()">ADD TO BAG +</button></div></div>
+</div></section>
+<footer id="contact"><h2>♡ Pink Fancy Store</h2><p>Jewellery • Beauty • Style</p><p>Add your WhatsApp number here for customer orders.</p>© 2026 Pink Fancy Store</footer>
+<script>
+let count=0;function add(){count++;document.getElementById('count').textContent=count;alert('Added to your bag!');}
+function filter(cat,btn){document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('#products .card').forEach(x=>x.style.display=cat==='All'||x.dataset.cat===cat?'':'none');}
+</script></body></html>
